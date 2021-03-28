@@ -1,21 +1,9 @@
 #include <SFML/Graphics.hpp>
-
+#include "Game.h"
+#include "Config.h"
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Not Tetris");
-
-	sf::Event event;
-
-	while (window.isOpen()) {
-
-		while (window.pollEvent(event)) {
-
-			if (event.type == sf::Event::Closed) {
-
-				window.close();
-			}
-		}
-	}
+	Game game(WINDOW_X_SIZE , WINDOW_Y_SIZE, "kolko i krzyzyk");
 
 	return 0;
 }

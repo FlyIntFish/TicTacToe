@@ -7,9 +7,12 @@ class BoardField : public Button
 {
 public:
 
-	void update(DataPtr ptr);
+	const sf::Vector2f& getPosition() const;
+	PlayerType getValue() const;
+	void setValue(PlayerType val);
 	void setPosition(const sf::Vector2f& pos);
 	void draw(sf::RenderWindow& window);
+	bool hasValue();
 
 	void setXvalueTexture(const TexutreIterator& texture);
 	void setOvalueTexture(const TexutreIterator& texture);

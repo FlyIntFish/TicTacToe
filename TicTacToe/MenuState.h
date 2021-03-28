@@ -12,13 +12,11 @@ public:
 	void update(const sf::Time& dt);
 	void draw();
 	void handleInput();
-	void reasume();
-	void pause();
-
 
 private:
 
 	void loadTextures();
+	void setTextures();
 	void initButtonsPosition();
 
 	DataPtr gameData;
@@ -27,6 +25,7 @@ private:
 	Button mapSize4Button;
 	Button mapSize5Button;
 	Button exitButton;
+
 
 };
 

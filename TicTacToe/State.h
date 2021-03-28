@@ -1,12 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "GameData.h"
 
 class State
 {
 public:
-
-	State(DataPtr ptr) { gameData = ptr; }
 
 	virtual void init() = 0;
 	virtual void update(const sf::Time&) = 0;
@@ -17,8 +14,5 @@ public:
 
 protected:
 
-	virtual void loadTextures() {};
-
-	DataPtr gameData;
-
+	virtual void loadTextures() {}
 };

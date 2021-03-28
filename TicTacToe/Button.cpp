@@ -58,3 +58,11 @@ bool Button::isClicked()
 {
 	return clicked;
 }
+
+sf::Vector2f Button::getDimensions()
+{
+	return sf::Vector2f(
+		sprite.getGlobalBounds().width,
+		sprite.getGlobalBounds().height
+	);
+}

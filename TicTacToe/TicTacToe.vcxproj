@@ -154,8 +154,10 @@
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardCheck.cpp" />
     <ClCompile Include="BoardField.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -168,9 +170,11 @@
     <ClInclude Include="Asset.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardCheck.h" />
     <ClInclude Include="BoardField.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputManager.h" />

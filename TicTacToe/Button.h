@@ -18,6 +18,7 @@ public:
 	void setButtonPointedTexture(const TexutreIterator& buttonPointedTexture);
 
 	bool isClicked();
+	sf::Vector2f getDimensions();
 
 protected:
 
