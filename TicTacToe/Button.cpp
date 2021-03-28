@@ -1,39 +1,47 @@
 #include "Button.h"
 
-Button::Button(DataPtr ptr)
+Button::Button(const sf::Vector2f& pos)
 {
-	this->gameDataPtr = ptr;
+	sprite.setPosition(pos);
 }
 
-void Button::draw()
+
+void Button::draw(sf::RenderWindow & window)
 {
-	gameDataPtr->window.draw(sprite);
+	window.draw(sprite);
 }
 
-void Button::setTextures(const std::string& textureName, const std::string& buttonPointedTextureName)
+void Button::setStandardTexture(const TexutreIterator& texture)
 {
-	this->buttonPointedTexture = gameDataPtr->assetManager.getTextureIterator(
-								buttonPointedTextureName);
-	this->texture = gameDataPtr->assetManager.getTextureIterator(textureName);
+	this->standardTexture = texture;
+	this->sprite.setTexture(texture->second);
 }
 
-void Button::checkIfClicked()
-{
-	clicked = gameDataPtr->inputManager.isSpriteClicked(sprite, sf::Mouse::Button::Left,
-		gameDataPtr->window);
+void Button::setButtonPointedTexture(const TexutreIterator& buttonPointedTexture) {
+	this->buttonPointedTexture = buttonPointedTexture;
 }
 
-void Button::checkIfPointed()
+void Button::checkIfClicked(const InputManager& inputManager, const sf::RenderWindow & window)
+{
+	clicked = inputManager.isSpriteClicked(sprite, sf::Mouse::Button::Left, window);
+}
+
+void Button::checkIfPointed(const InputManager & inputManager, const sf::RenderWindow& window)
 {
 	wasPointed = pointed;
-	pointed = gameDataPtr->inputManager.isMousePointingSprite(sprite, gameDataPtr->window);
+	pointed = inputManager.isMousePointingSprite(sprite, window);
 }
 
-void Button::update(const sf::Time& dt)
+void Button::update(DataPtr ptr)
 {
-	checkIfPointed();
-	checkIfClicked();
+	checkIfPointed(ptr->inputManager, ptr->window);
+	checkIfClicked(ptr->inputManager, ptr->window);
 	processTextureChanging();
+}
+
+void Button::setPosition(const sf::Vector2f& pos)
+{
+	sprite.setPosition(pos);
 }
 
 void Button::processTextureChanging()
@@ -42,7 +50,7 @@ void Button::processTextureChanging()
 		sprite.setTexture((*this->buttonPointedTexture).second);
 	}
 	else if (wasPointed && !pointed) {
-		sprite.setTexture((*this->texture).second);
+		sprite.setTexture((*this->standardTexture).second);
 	}
 }
 

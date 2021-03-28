@@ -2,31 +2,36 @@
 #include <SFML/Graphics.hpp>
 #include "GameData.h"
 
+using TexutreIterator = std::map<std::string, sf::Texture>::const_iterator;
+
 class Button
 {
 public:
 
-	Button(DataPtr ptr);
+	Button(const sf::Vector2f& pos = sf::Vector2f(0,0));
 
-	void draw();
-	void setTextures(const std::string& texture, const std::string& buttonPointedTextureName);
-	void update(const sf::Time & dt);
+	virtual void update(DataPtr ptr);
+	virtual void setPosition(const sf::Vector2f& pos);
+	virtual void draw(sf::RenderWindow& window);
+
+	void setStandardTexture(const TexutreIterator& texture);
+	void setButtonPointedTexture(const TexutreIterator& buttonPointedTexture);
 
 	bool isClicked();
 
-private:
+protected:
 
-	void processTextureChanging();
-	void checkIfClicked();
-	void checkIfPointed();
+	virtual void processTextureChanging();
+
+	void checkIfClicked(const InputManager& inputManager, const sf::RenderWindow& window);
+	void checkIfPointed(const InputManager& inputManager, const sf::RenderWindow& window);
 
 	bool clicked;
 	bool pointed;
 	bool wasPointed;
 	sf::Sprite sprite;
-	std::map<std::string, sf::Texture>::const_iterator texture;
-	std::map<std::string, sf::Texture>::const_iterator buttonPointedTexture;
-	DataPtr gameDataPtr;
+	TexutreIterator standardTexture;
+	TexutreIterator buttonPointedTexture;
 
 };
 

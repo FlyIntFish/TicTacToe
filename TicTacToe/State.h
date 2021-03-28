@@ -15,7 +15,9 @@ public:
 	virtual void reasume() {}
 	virtual void pause() {}
 
-private:
+protected:
+
+	virtual void loadTextures() {};
 
 	DataPtr gameData;
 

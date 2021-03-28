@@ -153,8 +153,11 @@
   <ItemGroup>
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardField.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameData.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
@@ -164,8 +167,12 @@
   <ItemGroup>
     <ClInclude Include="Asset.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardField.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="GameData.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="State.h" />

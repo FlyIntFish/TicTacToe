@@ -18,10 +18,15 @@ public:
 
 private:
 
+	void loadTextures();
+	void initButtonsPosition();
+
+	DataPtr gameData;
 	sf::Sprite sprite;
-	Button mapSize3; // used to choose size of map - 3x3, 4x4, 5x5
-	Button mapSize4;
-	Button mapSize5;
+	Button mapSize3Button; // used to choose size of map - 3x3, 4x4, 5x5
+	Button mapSize4Button;
+	Button mapSize5Button;
+	Button exitButton;
 
 };
 
